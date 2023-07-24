@@ -3,10 +3,12 @@ const mongoose= require("mongoose")
 const articleRouter = require("./routes/article")
 const Article = require("./models/article");
 const methodOverride = require('method-override')
+require("dotenv").config();
 
 const app = express()
 
-mongoose.connect('mongodb://127.0.0.1:27017/blog').then(()=> console.log("DB connection established"))
+//'mongodb://127.0.0.1:27017/blog'
+mongoose.connect(process.env.MONGO_URL).then(()=> console.log("DB connection established"))
 .catch(err => console.log("Mongo Error", err));
 
 app.set('view engine','ejs')
