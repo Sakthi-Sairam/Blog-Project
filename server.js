@@ -32,6 +32,6 @@ app.get("/", async(req,res)=>{
 app.use('/articles',articleRouter)
 
 
-app.listen(5000,()=>{
+app.listen(5000||process.env.PORT,()=>{
     console.log("server is listening on 5000...")
 })
