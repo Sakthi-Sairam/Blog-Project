@@ -15,7 +15,11 @@ const articleSchema = new mongoose.Schema({
     },
     createdAt:{
         type: Date,
-        default: Date.getTime()
+        default: Date.now()
+    },
+    createdAtMillis: {
+        type: Number,
+        default: () => Date.now()  // stores time in milliseconds
     },
     slug:{
         type: String,

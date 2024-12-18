@@ -22,7 +22,7 @@ app.use(methodOverride('_method'))
 
 app.get("/", async(req,res)=>{
     const articles= await Article.find().sort({
-        createdAt:'desc'
+        createdAtMillis: 'desc'
     })
 
     res.render('articles/index',{ articles:articles });
