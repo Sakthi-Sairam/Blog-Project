@@ -29,7 +29,8 @@ const articleSchema = new mongoose.Schema({
 })
 articleSchema.pre('validate',function(next){
     if(this.title){
-        this.slug = slugify(this.title, {lower: true, strict: true})
+        let r = (Math.random() + 1).toString(36).substring(7);
+        this.slug = slugify(this.title, {lower: true, strict: true}) + "-"+r;
     }
     next()
 })
